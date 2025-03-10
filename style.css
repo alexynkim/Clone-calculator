@@ -1,0 +1,109 @@
+:root {
+    --gradient: linear-gradient(180deg, #FF6147 50%, #090C31 50%);
+    --darkblue: #1e2055;
+    --white: #FFFFFF;
+    --orange: #FF6147;
+    --lightgrey: #9490AC;
+    --darkgrey: #181849;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", monospace;
+}
+
+body {
+    height: 100vh;
+    background: var(--gradient);
+}
+
+.calculator {
+    width: 400px;
+    background-color: var(--darkblue);
+    padding: 50px 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 8px;
+    box-shadow: 0 30px 50px rgba(35, 38, 53, 0.4);
+}
+
+.display {
+    width: 100%;
+}
+
+.display input {
+    width: 95%;
+    padding: 15px 10px;
+    text-align: right;
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 30px;
+}
+
+
+.display input::placeholder {
+    color: var(--lightgrey);
+}
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.buttons input[type="button"] {
+    font-size: 20px;
+    padding: 20px;
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.buttons input[type="button"]:hover {
+    box-shadow: 0 10px 30px #00002E;
+}
+
+.buttons input[type="button"]#equal {
+    background-color: var(--orange);
+}
+
+/* Simple toast popup */
+#toast-container {
+    position: fixed;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--darkgrey);
+    color: var(--lightgrey);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 99, 0.3);
+    transition: opacity 0.5s;
+}
+
+#toast-container.show {
+    opacity: 1;
+}
+
+#toast-container.hide {
+    opacity: 0;
+}
+
+.toast-container-hidden {
+    display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .buttons input[type="button"]:hover {
+        pointer-events: none;
+    }
+}
